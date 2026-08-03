@@ -51,15 +51,25 @@
 
     <main id="main">
       <section class="hero" id="home">
-        <div class="hero-image parallax"></div>
-        <div class="hero-shade"></div>
-        <div class="hero-content container">
-          <p class="eyebrow light reveal" data-i18n="hero_kicker">A legacy underfoot · Since 2004</p>
-          <h1 class="reveal" data-i18n="hero_title">Timeless Craftsmanship.<br />Luxury Beneath Every Step.</h1>
-          <p class="hero-copy reveal" data-i18n="hero_copy">Discover handcrafted Persian, Turkish, Belgian Silk, and custom-made luxury rugs designed for sophisticated living.</p>
-          <div class="hero-actions reveal"><a class="button button-primary" href="#collections" data-i18n="hero_primary">Explore Collection <span>→</span></a><a class="button button-ghost" href="#contact" data-i18n="hero_secondary">Book a Showroom Visit</a></div>
+        <div class="hero-stage">
+          <div class="hero-scene" aria-hidden="true">
+            <div class="hero-layer flight-exterior"></div>
+            <div class="hero-layer flight-entrance"></div>
+            <div class="hero-layer flight-showroom"></div>
+            <div class="hero-layer flight-rug-detail"></div>
+          </div>
+          <div class="hero-shade"></div>
+          <div class="hero-content container">
+            <p class="eyebrow light reveal" data-i18n="hero_kicker">A legacy underfoot · Since 2004</p>
+            <h1 class="reveal" data-i18n="hero_title">Timeless Craftsmanship.<br />Luxury Beneath Every Step.</h1>
+            <p class="hero-copy reveal" data-i18n="hero_copy">Discover handcrafted Persian, Turkish, Belgian Silk, and custom-made luxury rugs designed for sophisticated living.</p>
+            <div class="hero-actions reveal"><a class="button button-primary" href="#collections" data-i18n="hero_primary">Explore Collection <span>→</span></a><a class="button button-ghost" href="#contact" data-i18n="hero_secondary">Book a Showroom Visit</a></div>
+          </div>
+          <div class="showroom-callout showroom-callout-one"><span>01</span><strong>Persian Silk</strong><small>Qum · Hand knotted</small></div>
+          <div class="showroom-callout showroom-callout-two"><span>02</span><strong>Natural Wool</strong><small>Tabriz · Heritage weave</small></div>
+          <div class="flight-caption"><span class="flight-count">01 / 04</span><strong id="flight-caption-text">Approach the showroom</strong></div>
+          <div class="hero-foot"><span data-i18n="hero_scroll">Scroll to discover</span><div class="scroll-line"><i></i></div><span class="flight-progress">01 / 04</span></div>
         </div>
-        <div class="hero-foot"><span data-i18n="hero_scroll">Scroll to discover</span><div class="scroll-line"></div><span>01 / 07</span></div>
       </section>
 
       <section class="collections section" id="collections">
@@ -70,7 +80,7 @@
             <article class="collection-card large reveal" data-category="persian"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=85" alt="Luxurious living room with a hand-knotted rug" loading="eager"/><div class="card-gradient"></div><div class="collection-number">01</div><div class="collection-text"><p class="eyebrow light" data-i18n="persian_label">Persian Silk Collection</p><h3 data-i18n="persian_title">Qum, Tabriz &amp; Naein</h3><p data-i18n="persian_copy">Exquisite natural silk rugs, masterfully detailed by generations of artisans.</p><a href="#contact" class="text-link" data-i18n="explore">Explore collection <span>→</span></a></div></article>
             <article class="collection-card reveal" data-category="turkish"><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=85" alt="Warm designer interior with heirloom rug" loading="lazy"/><div class="card-gradient"></div><div class="collection-number">02</div><div class="collection-text"><p class="eyebrow light" data-i18n="turkish_label">Turkish Heritage</p><h3 data-i18n="turkish_title">Ottoman artistry</h3><p data-i18n="turkish_copy">Traditional masterworks in rich, enduring palettes.</p><a href="#contact" class="text-link" data-i18n="explore">Explore collection <span>→</span></a></div></article>
             <article class="collection-card reveal" data-category="belgian"><img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=900&q=85" alt="Contemporary cream living room with natural fiber rug" loading="lazy"/><div class="card-gradient"></div><div class="collection-number">03</div><div class="collection-text"><p class="eyebrow light" data-i18n="belgian_label">Belgian Natural Silk</p><h3 data-i18n="belgian_title">Quietly contemporary</h3><p data-i18n="belgian_copy">European elegance with a whisper-soft, luminous finish.</p><a href="#contact" class="text-link" data-i18n="explore">Explore collection <span>→</span></a></div></article>
-            <article class="collection-card wide reveal" data-category="antique"><img src="https://i.pinimg.com/1200x/6e/8b/ad/6e8bad46f5613a6e0aa44f5aeb09566f.jpg" alt="Elegant bedroom with antique rug" loading="lazy"/><div class="card-gradient"></div><div class="collection-number">04</div><div class="collection-text"><p class="eyebrow light" data-i18n="antique_label">Antique &amp; Collector Rugs</p><h3 data-i18n="antique_title">A rare point of view</h3><p data-i18n="antique_copy">Tribal, nomadic and oriental treasures, each with a singular history.</p><a href="#contact" class="text-link" data-i18n="explore">Explore collection <span>→</span></a></div></article>
+            <article class="collection-card wide reveal" data-category="antique"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=85" alt="Elegant bedroom with antique rug" loading="lazy"/><div class="card-gradient"></div><div class="collection-number">04</div><div class="collection-text"><p class="eyebrow light" data-i18n="antique_label">Antique &amp; Collector Rugs</p><h3 data-i18n="antique_title">A rare point of view</h3><p data-i18n="antique_copy">Tribal, nomadic and oriental treasures, each with a singular history.</p><a href="#contact" class="text-link" data-i18n="explore">Explore collection <span>→</span></a></div></article>
           </div>
         </div>
       </section>
