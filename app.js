@@ -15,12 +15,68 @@ const backTop = $(".back-top");
 const menu = $(".menu-toggle");
 const nav = $(".nav-links");
 const searchPanel = $(".search-panel");
+const hero = $(".hero");
+const heroContent = $(".hero-content");
+const heroShade = $(".hero-shade");
+const flightLayers = {
+  exterior: $(".flight-exterior"),
+  entrance: $(".flight-entrance"),
+  showroom: $(".flight-showroom"),
+  detail: $(".flight-rug-detail")
+};
+const showroomCallouts = [$$(".showroom-callout")[0], $$(".showroom-callout")[1]];
+const flightCaption = $("#flight-caption-text");
+const flightCount = $(".flight-count");
+const flightProgress = $(".flight-progress");
+const flightLine = $(".scroll-line i");
+
+const clamp = (value, min = 0, max = 1) => Math.min(Math.max(value, min), max);
+const ramp = (value, start, end) => clamp((value - start) / (end - start));
+const flightCaptions = {
+  en: ["Approach the showroom", "Cross the threshold", "Discover the collection", "Study every detail"],
+  ar: ["اقترب من المعرض", "اعبر إلى الداخل", "اكتشف المجموعة", "تأمل كل تفصيلة"]
+};
+
+function updateFlight() {
+  if (!hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const distance = Math.max(hero.offsetHeight - window.innerHeight, 1);
+  const progress = clamp(-hero.getBoundingClientRect().top / distance);
+  const exteriorFade = 1 - ramp(progress, .18, .41);
+  const entranceFade = ramp(progress, .17, .35) * (1 - ramp(progress, .47, .64));
+  const showroomFade = ramp(progress, .45, .62) * (1 - ramp(progress, .76, .91));
+  const detailFade = ramp(progress, .74, .92);
+
+  flightLayers.exterior.style.opacity = exteriorFade;
+  flightLayers.exterior.style.transform = `scale(${1 + progress * .42})`;
+  flightLayers.entrance.style.opacity = entranceFade;
+  flightLayers.entrance.style.transform = `scale(${1.18 - ramp(progress, .17, .64) * .24})`;
+  flightLayers.showroom.style.opacity = showroomFade;
+  flightLayers.showroom.style.transform = `scale(${1.16 - ramp(progress, .45, .91) * .2})`;
+  flightLayers.detail.style.opacity = detailFade;
+  flightLayers.detail.style.transform = `scale(${1.12 - ramp(progress, .74, 1) * .15})`;
+  heroShade.style.opacity = .95 - progress * .2;
+
+  const contentFade = 1 - ramp(progress, .02, .2);
+  heroContent.style.opacity = contentFade;
+  heroContent.style.transform = `translateY(${-progress * 28}px)`;
+  showroomCallouts[0].style.opacity = ramp(progress, .5, .6) * (1 - ramp(progress, .79, .91));
+  showroomCallouts[0].style.transform = `translateY(${12 - ramp(progress, .5, .6) * 12}px)`;
+  showroomCallouts[1].style.opacity = ramp(progress, .61, .72) * (1 - ramp(progress, .84, .96));
+  showroomCallouts[1].style.transform = `translateY(${12 - ramp(progress, .61, .72) * 12}px)`;
+
+  const stage = progress < .25 ? 0 : progress < .5 ? 1 : progress < .75 ? 2 : 3;
+  const language = document.documentElement.lang === "ar" ? "ar" : "en";
+  flightCaption.textContent = flightCaptions[language][stage];
+  const count = `0${stage + 1} / 04`;
+  flightCount.textContent = count;
+  flightProgress.textContent = count;
+  flightLine.style.width = `${Math.max(9, progress * 100)}%`;
+}
 
 function updateHeader() {
   header.classList.toggle("scrolled", window.scrollY > 28);
   backTop.classList.toggle("visible", window.scrollY > 650);
-  const parallax = $(".parallax");
-  if (parallax && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) parallax.style.transform = `translateY(${window.scrollY * .18}px)`;
+  updateFlight();
 }
 window.addEventListener("scroll", updateHeader, { passive: true });
 updateHeader();
@@ -47,6 +103,7 @@ function updateLanguage(language) {
   $$('[data-i18n-placeholder]').forEach((el) => { const key = el.dataset.i18nPlaceholder; if (dict[key]) el.placeholder = dict[key]; });
   $(".lang-toggle").textContent = language === "ar" ? "English" : "العربية";
   localStorage.setItem("heritage-language", language);
+  updateFlight();
 }
 $(".lang-toggle").addEventListener("click", () => updateLanguage(document.documentElement.lang === "ar" ? "en" : "ar"));
 if (localStorage.getItem("heritage-language") === "ar") updateLanguage("ar");
