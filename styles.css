@@ -73,7 +73,7 @@ img { display: block; max-width: 100%; }
 .flight-exterior { z-index: 1; background-image: url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=90"); }
 .flight-entrance { z-index: 2; opacity: 0; background-image: url("https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2200&q=90"); }
 .flight-showroom { z-index: 3; opacity: 0; background-image: url("https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=2200&q=90"); }
-.flight-rug-detail { z-index: 4; opacity: 0; background-image: url("https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2200&q=90"); }
+.flight-rug-detail { z-index: 4; opacity: 0; background-image: url("https://i.pinimg.com/1200x/ad/71/25/ad712546693e604a3822003497decfc7.jpg"); }
 .hero-shade { position: absolute; z-index: 5; inset: 0; background: linear-gradient(90deg, rgba(25,18,13,.72) 0%, rgba(25,18,13,.35) 48%, rgba(25,18,13,.1) 100%), linear-gradient(0deg, rgba(16,12,9,.54) 0%, transparent 48%); pointer-events: none; }
 .hero-content { position: relative; z-index: 7; padding-top: 68px; will-change: opacity, transform; }
 .eyebrow { margin: 0 0 18px; color: var(--gold); font-size: 10px; line-height: 1.4; letter-spacing: .19em; text-transform: uppercase; font-weight: 700; }
